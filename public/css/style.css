@@ -1,0 +1,144 @@
+:root {
+  --theme-primary: #039be5;
+  --theme-primary-dark: #003763;
+  --theme-primary-light: #b3e5fc;
+  --theme-text: #444;
+  --theme-font-title: 'Raleway', serif;
+  --theme-font-condenced: 'IBM Plex Condensed', sans-serif;
+  --theme-font-monospace: 'IBM Plex Mono', monospace;
+  --theme-font-roboto: 'Roboto', sans-serif;
+  --border-light-color: #e7e7e7;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body,
+html {
+  background-color: whitesmoke;
+  font-family: 'IBM Plex Sans', sans-serif;
+  height: 100vh;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Footer */
+footer {
+  padding: 1rem 2rem;
+  padding: 1rem 2 rem;
+  border-top: 1px solid #e7e7e7;
+  font-size: 0.8rem;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--theme-font-title);
+  color: var(--theme-primary-dark);
+}
+
+.push {
+  margin-left: auto;
+}
+
+.page-heading {
+  font-size: 28px;
+  margin: 1rem;
+  color: var(--theme-primary-dark);
+  text-align: center;
+}
+
+.login-form {
+  width: 30rem;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 1rem;
+  border: 1px solid var(--border-light-color);
+  border-radius: 0.4rem;
+  padding: 1rem;
+}
+
+.login-form {
+  margin: 1rem 0;
+}
+
+.form-controls {
+  margin: 0.5rem;
+}
+.form-actions {
+  margin: 1.5rem 0;
+}
+
+.form-label {
+  display: block;
+}
+
+.input {
+  font-family: 'Raleway', sans-serif;
+  border: 1px solid var(--theme-primary-light);
+  border-radius: 4px;
+  padding: 0.3rem;
+  font-weight: 400;
+  letter-spacing: 1px;
+  width: 100%;
+}
+.checkbox {
+  margin: 0.2rem 0.1rem;
+  border: 1px solid var(--theme-primary-light);
+}
+
+.button {
+  font-weight: bold;
+  border: 1px solid var(--theme-primary-light);
+  border-radius: 0.4rem;
+  margin: 0.1rem 0.5rem;
+  padding: 0.5rem;
+  text-decoration: none;
+  color: var(--theme-primary-dark);
+}
+
+.button:hover {
+  background: var(--theme-primary);
+  color: white;
+}
+
+.button-primary {
+  background: var(--theme-primary);
+  color: whitesmoke;
+}
+
+.cmds {
+  display: flex;
+  flex-direction: row-reverse;
+  padding: 1rem 1rem 0 1rem;
+  border-top: 1px solid var(--theme-primary-light);
+}
+
+.centered-content {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.jumbotron {
+  display: inline-block;
+  margin: auto auto;
+  padding: 4rem;
+  color: var(--theme-primary-dark);
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 3px #eee;
+}
+
+.home {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  padding: 1rem 2rem;
+}

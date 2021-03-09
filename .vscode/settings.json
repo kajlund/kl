@@ -1,0 +1,9 @@
+{
+  "appService.zipIgnorePattern": [
+    "node_modules{,/**}",
+    ".vscode{,/**}",
+    ".env"
+  ],
+  "appService.defaultWebAppToDeploy": "/subscriptions/af62d4f6-ae61-4bcc-ac2f-7f56dbb54d96/resourceGroups/klserver/providers/Microsoft.Web/sites/klserver",
+  "appService.deploySubpath": "."
+}
