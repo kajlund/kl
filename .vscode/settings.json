@@ -1,4 +1,9 @@
 {
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "eslint.validate": ["javascript"],
   "appService.zipIgnorePattern": [
     "node_modules{,/**}",
     ".vscode{,/**}",

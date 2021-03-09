@@ -9,7 +9,9 @@ const express = require('express')
 
 const cnf = require('./config')
 const log = require('./utils/log')
+const { connect } = require('./utils/db')
 const { errorHandler } = require('./utils/error')
+const { signin, signup } = require('./utils/auth')
 
 const app = express()
 const pino = require('pino-http')({ logger: log })
@@ -17,11 +19,6 @@ const pino = require('pino-http')({ logger: log })
 app.disable('x-powered-by')
 
 app.use(pino) // http logging middleware
-
-// app.use(express.static(path.join('..', __dirname, 'public')))
-// app.get('/', (req, res) => {
-//   res.redirect('/index.html')
-// })
 
 // REST Server
 app.use(cors())
@@ -37,6 +34,7 @@ app.use(
  */
 const start = async () => {
   try {
+    await connect() // Connect DB
     app.listen(cnf.port, () => {
       log.info(`Server started at http://localhost:${cnf.port}`)
     })
@@ -48,11 +46,14 @@ const start = async () => {
 /**
  * Server Route Configurations
  */
+app.post('/api/signin', signin)
+app.post('/api/signup', signup)
+app.use('/api/users', require('./resources/user/user.router'))
 
 /**
  * Server 404 Handler
  */
-// app.use((_req, res) => res.status(404).json({ message: 'Not Found' }))
+app.use((_req, res) => res.status(404).json({ message: 'Not Found' }))
 
 /**
  * Generic Error Handling Middleware
