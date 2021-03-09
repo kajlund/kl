@@ -36,7 +36,7 @@ const start = async () => {
   try {
     await connect() // Connect DB
     app.listen(cnf.port, () => {
-      log.info(`Server started at http://localhost:${cnf.port}`)
+      log.info(`Server started on http://localhost:${cnf.port}`)
     })
   } catch (e) {
     log.error(e)
@@ -49,6 +49,12 @@ const start = async () => {
 app.post('/api/signin', signin)
 app.post('/api/signup', signup)
 app.use('/api/users', require('./resources/user/user.router'))
+app.use('/api/cachetypes', require('./resources/cachetype/cachetype.router'))
+app.use(
+  '/api/municipalities',
+  require('./resources/municipality/municipality.router')
+)
+app.use('/api/caches', require('./resources/cache/cache.router'))
 
 /**
  * Server 404 Handler
