@@ -5,10 +5,15 @@
 const { Router } = require('express')
 const { adminOnly, protect } = require('../../utils/auth')
 const ctrl = require('./municipality.controller')
+const Municipality = require('./municipality.model')
+const query = require('../../utils/query')
 
 const router = Router()
 
-router.route('/').get(protect, ctrl.getMany).post(protect, ctrl.createOne)
+router
+  .route('/')
+  .get(protect, query(Municipality, ''), ctrl.getMany)
+  .post(protect, ctrl.createOne)
 
 router
   .route('/:id')

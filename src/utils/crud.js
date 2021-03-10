@@ -32,6 +32,8 @@ const getOne = (model) => async (req, res, next) => {
  * @access   User/Admin
  */
 const getMany = (model) => async (req, res, next) => {
+  // If already filterd by filter-middleware
+  if (res.results) return res.json(res.results)
   try {
     const docs = await model
       .find({ deleted: false })

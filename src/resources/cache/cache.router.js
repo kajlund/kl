@@ -4,11 +4,16 @@
 
 const { Router } = require('express')
 const { adminOnly, protect } = require('../../utils/auth')
+const Cache = require('./cache.model')
 const ctrl = require('./cache.controller')
+const query = require('../../utils/query')
 
 const router = Router()
 
-router.route('/').get(protect, ctrl.getMany).post(protect, ctrl.createOne)
+router
+  .route('/')
+  .get(protect, query(Cache, 'cachetype municipality'), ctrl.getMany)
+  .post(protect, ctrl.createOne)
 
 router
   .route('/:id')
